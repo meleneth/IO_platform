@@ -2,11 +2,22 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <cstdio>  // printf, FILE, fopen, etc
+#include <cstdlib> // malloc, free
+#include <cstring> // strlen, memcpy, strcmp
+#include <ctime>   // time, localtime, strftime
 
 #if defined(WINDOWS)
 
-#include <windef.h>
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
 
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+
+#include <Windows.h>
 #define PLATFORM_SLASH ('\\')
 #define NATIVE_STRING_TYPE const wchar_t
 
